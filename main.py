@@ -53,21 +53,21 @@ if __name__ == "__main__":
 
     if model == 1:
         Manhattan_Distance_heuristic.set_parameter(initial_state, final_state, puzzle_size, goal_positions)
-        result = Manhattan_Distance_heuristic.general_search(Manhattan_Distance_heuristic.queueing_function)
+        result = Manhattan_Distance_heuristic.general_search(Manhattan_Distance_heuristic.queueing)
         if result != "failure":
             Manhattan_Distance_heuristic.print_solution(result)
         else:
             print("No solution found.")
     elif model == 2:
         Misplaced_Tile_heuristic.set_parameter(initial_state, final_state, puzzle_size, goal_positions)
-        result = Misplaced_Tile_heuristic.general_search(Misplaced_Tile_heuristic.queueing_function)
+        result = Misplaced_Tile_heuristic.general_search(Misplaced_Tile_heuristic.queueing)
         if result != "failure":
             Misplaced_Tile_heuristic.print_solution(result)
         else:
             print("No solution found.")
     elif model == 3:
         Uniform_Cost_Search.set_parameter(initial_state, final_state, puzzle_size, goal_positions)
-        result = Uniform_Cost_Search.general_search(Uniform_Cost_Search.queueing_function)
+        result = Uniform_Cost_Search.general_search(Uniform_Cost_Search.queueing)
         if result != "failure":
             Uniform_Cost_Search.print_solution(result)
         else:

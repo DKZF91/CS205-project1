@@ -43,13 +43,13 @@ def expand(node, operators):
     return children
 
 # Put all the child nodes obtained in the previous step into the heap, and the heap will be automatically sorted
-def queueing_function(queue, successors):
+def queueing(queue, successors):
     for s in successors:
         heapq.heappush(queue, s)
     return queue
 
 # Main A* Function Matching Pseudocode
-def general_search(queueing_function):
+def general_search(queueing):
     nodes = [Node(initial_state)]
     heapq.heapify(nodes)
 
@@ -62,7 +62,7 @@ def general_search(queueing_function):
         if node.state == final_state:
             return node # reach goal state
 
-        nodes = queueing_function(nodes, expand(node, operators))
+        nodes = queueing(nodes, expand(node, operators))
 
 def set_parameter(initial, final, size, goal):
     global initial_state, final_state, puzzle_size, operators, goal_positions
@@ -84,5 +84,5 @@ def print_solution(node):
         for row in step.state:
             print(row)
         print(f"g(n) = {step.g}, h(n) = {step.h}, f(n) = {step.f}")
-        print("----")
+        print("==========")
 
